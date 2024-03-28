@@ -10,6 +10,6 @@ export const registerUser = catchAsync(
       return next(new AppError(registerUser.message, registerUser.status));
     }
 
-    return res.status(200).json(registerUser);
+    return res.status(registerUser.status).json(registerUser);
   }
 );
