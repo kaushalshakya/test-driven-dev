@@ -2,15 +2,5 @@
     "compilerOptions": {
       "module": "NodeNext",
       "moduleResolution": "NodeNext",
-      "baseUrl": ".",
-      "paths": {
-        "@configs/*": ["./src/configs/*"],
-        "@controllers/*": ["./src/controllers/*"],
-        "@models/*": ["./src/models/*"],
-        "@middlewares/*": ["./src/middlewares/*"],
-        "@tests/*": ["./src/tests/*"],
-        "@helpers/*": ["./src/helpers/*"],
-        "@services/*": ["./src/services/*"]
-      }
     },
 }

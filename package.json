@@ -27,14 +27,5 @@
     "module-alias": "^2.2.3",
     "supertest": "^6.3.4",
     "ts-node-dev": "^2.0.0"
-  },
-  "_moduleAliases": {
-    "@configs": "./src/configs",
-    "@controllers": "./src/controllers",
-    "@models": "./src/models",
-    "@middlewares": "./src/middlewares",
-    "@tests": "./src/tests",
-    "@helpers": "./src/helpers",
-    "@services": "./src/services"
   }
 }

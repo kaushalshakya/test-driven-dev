@@ -1,7 +1,6 @@
 import express from "express";
-import "module-alias/register";
 import mongoose from "mongoose";
-import { db, port } from "@configs/dotenv.config";
+import { db, port } from "./src/configs/dotenv.config";
 
 const app = express();
 

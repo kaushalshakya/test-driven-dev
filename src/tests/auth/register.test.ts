@@ -11,8 +11,9 @@ describe("Register", () => {
         password: "test123",
         confirm_password: "test123",
       };
+      const response = await registerService(registerData);
 
-      expect(registerService(registerData).status).toBe(201);
+      expect(response.status).toBe(201);
     });
     test("should return 400 when first_name is not provided", async () => {
       const registerData = {
@@ -22,7 +23,9 @@ describe("Register", () => {
         password: "test123",
         confirm_password: "123test",
       };
-      expect(registerService(registerData).status).toBe(400);
+      const response = await registerService(registerData);
+
+      expect(response.status).toBe(400);
     });
 
     test("should return 400 when confirm_password is not provided", async () => {
@@ -33,8 +36,9 @@ describe("Register", () => {
         email: "test.user@jest.com",
         password: "test123",
       };
+      const response = await registerService(registerData);
 
-      expect(registerService(registerData).status).toBe(400);
+      expect(response.status).toBe(400);
     });
     test("should return 400 when password and confirm_passowrd is not equal", async () => {
       const registerData = {
@@ -45,8 +49,9 @@ describe("Register", () => {
         password: "test123",
         confirm_password: "asdet",
       };
+      const response = await registerService(registerData);
 
-      expect(registerService(registerData).status).toBe(400);
+      expect(response.status).toBe(400);
     });
     test("should return 400 when last_name is not provided", async () => {
       const registerData = {
@@ -56,8 +61,9 @@ describe("Register", () => {
         password: "test123",
         confirm_password: "123test",
       };
+      const response = await registerService(registerData);
 
-      expect(registerService(registerData).status).toBe(400);
+      expect(response.status).toBe(400);
     });
     test("should return 400 when email is not provided", async () => {
       const registerData = {
@@ -67,8 +73,9 @@ describe("Register", () => {
         password: "test123",
         confirm_password: "123test",
       };
+      const response = await registerService(registerData);
 
-      expect(registerService(registerData).status).toBe(400);
+      expect(response.status).toBe(400);
     });
     test("should return 400 when password is not provided", async () => {
       const registerData = {
@@ -78,8 +85,9 @@ describe("Register", () => {
         email: "test.user@jest.com",
         confirm_password: "123test",
       };
+      const response = await registerService(registerData);
 
-      expect(registerService(registerData).status).toBe(400);
+      expect(response.status).toBe(400);
     });
   });
 });
