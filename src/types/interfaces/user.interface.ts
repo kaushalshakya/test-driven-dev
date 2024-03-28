@@ -11,5 +11,5 @@ export interface UserRegister {
 export interface APIResponse {
   status: number;
   message: string;
-  data?: Array<object>;
+  data?: Array<object> | object;
 }

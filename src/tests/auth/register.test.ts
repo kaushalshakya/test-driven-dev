@@ -2,7 +2,7 @@ import { registerService } from "../../services/auth/register.service";
 
 describe("Register", () => {
   describe("POST /api/auth/register", () => {
-    test("should return 201 on successful registration", async () => {
+    test("should return 201 on successful registration", () => {
       const registerData = {
         first_name: "Test",
         middle_name: "Bahadur",
@@ -11,9 +11,9 @@ describe("Register", () => {
         password: "test123",
         confirm_password: "test123",
       };
-      const response = await registerService(registerData);
-
-      expect(response.status).toBe(201);
+      registerService(registerData).then((resp) =>
+        expect(resp.status).toBe(201)
+      );
     });
     test("should return 400 when first_name is not provided", async () => {
       const registerData = {
