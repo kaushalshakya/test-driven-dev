@@ -10,6 +10,7 @@
         "@middlewares/*": ["./src/middlewares/*"],
         "@tests/*": ["./src/tests/*"],
         "@helpers/*": ["./src/helpers/*"],
+        "@services/*": ["./src/services/*"]
       }
     },
 }
