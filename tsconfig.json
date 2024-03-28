@@ -8,7 +8,8 @@
         "@controllers/*": ["./src/controllers/*"],
         "@models/*": ["./src/models/*"],
         "@middlewares/*": ["./src/middlewares/*"],
-        "@tests/*": ["./src/tests/*"]
+        "@tests/*": ["./src/tests/*"],
+        "@helpers/*": ["./src/helpers/*"],
       }
     },
 }
