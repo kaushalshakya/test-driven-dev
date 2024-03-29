@@ -15,9 +15,11 @@ mongoose
 
 app.use("/api/auth", AuthRoutes);
 
-app.listen(port, () => {
-  console.log(`👍️ Server running on: http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () => {
+    console.log(`👍️ Server running on: http://localhost:${port}`);
+  });
+}
 
 app.use(errorHandler);
 

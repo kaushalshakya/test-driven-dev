@@ -5,11 +5,12 @@ import { app } from "../../../server";
 describe("Register", () => {
   describe("POST /api/auth/register", () => {
     test("should return 201 on successful registration", () => {
+      const randomNumber: number = Math.floor(Math.random() * 9999) + 1;
       const registerData = {
         first_name: "Test",
         middle_name: "Bahadur",
         last_name: "User",
-        email: "test+1.user@jest.com",
+        email: `test+${randomNumber}.user@jest.com`,
         password: "test123",
         confirm_password: "test123",
       };
