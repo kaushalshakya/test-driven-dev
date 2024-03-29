@@ -1,3 +1,4 @@
+import { checkEmail } from "../../helpers";
 import { User } from "../../models/user.model";
 import {
   APIResponse,
@@ -24,6 +25,10 @@ export const registerService = async (
       message: "Password and Confirm Password fields do not match",
     };
   }
+
+  const emailCheck = checkEmail(userDetails.email);
+
+  if (!emailCheck) return { status: 400, message: "Invalid Email" };
 
   const emailExists = await User.findOne({ email: userDetails.email });
 
