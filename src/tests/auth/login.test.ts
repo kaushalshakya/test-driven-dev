@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import { loginService } from "../../services/auth";
+import { app } from "../../../server";
+import supertest from "supertest";
 
 afterAll(async () => {
   await mongoose.disconnect();
@@ -34,6 +36,33 @@ describe("Login User", () => {
       expect(response.status).toBe(200);
       expect(response.data).toHaveProperty("accessToken");
       expect(response.data).toHaveProperty("refreshToken");
+    });
+
+    test("invalid user", async () => {
+      const loginDetails = {
+        email: "estasdasdad@gmail.com",
+        password: "asdqwe123",
+      };
+
+      const response = await supertest(app)
+        .post("/api/auth/login")
+        .send(loginDetails);
+
+      expect(response.status).toBe(404);
+    });
+
+    test("invalid credentials", async () => {
+      const loginDetails = {
+        email: "test.user@jest.com",
+        password: "asdqwe123",
+      };
+
+      const response = await supertest(app)
+        .post("/api/auth/login")
+        .send(loginDetails);
+
+      expect(response.status).toBe(400);
+      expect(response.body.message).toBe("Invalid Credentials");
     });
   });
 });
