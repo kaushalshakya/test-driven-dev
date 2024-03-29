@@ -1,9 +1,7 @@
 import { checkEmail } from "../../helpers";
 import { User } from "../../models/user.model";
-import {
-  APIResponse,
-  UserRegister,
-} from "../../types/interfaces/user.interface";
+import { APIResponse } from "../../types/interfaces/response.interface";
+import { UserRegister } from "../../types/interfaces/user.interface";
 import bcrypt from "bcrypt";
 
 export const registerService = async (

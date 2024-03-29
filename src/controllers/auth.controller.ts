@@ -1,6 +1,6 @@
 import { AppError, catchAsync } from "../helpers/index";
 import { NextFunction, Request, Response } from "express";
-import { registerService } from "../services/auth/register.service";
+import { loginService, registerService } from "../services/auth";
 
 export const registerUser = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -11,5 +11,17 @@ export const registerUser = catchAsync(
     }
 
     return res.status(registerUser.status).json(registerUser);
+  }
+);
+
+export const loginUser = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const loginUser = await loginService(req.body);
+
+    if (loginUser.status >= 400) {
+      return next(new AppError(loginUser.message, loginUser.status));
+    }
+
+    return res.status(loginUser.status).json(loginUser);
   }
 );

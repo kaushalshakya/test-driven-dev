@@ -8,8 +8,7 @@ export interface UserRegister {
   role?: string;
 }
 
-export interface APIResponse {
-  status: number;
-  message: string;
-  data?: Array<object> | object;
+export interface UserLogin {
+  email?: string;
+  passowrd?: string;
 }
