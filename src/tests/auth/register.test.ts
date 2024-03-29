@@ -1,6 +1,11 @@
 import { registerService } from "../../services/auth/register.service";
 import supertest from "supertest";
 import { app } from "../../../server";
+import mongoose from "mongoose";
+
+afterAll(async () => {
+  await mongoose.disconnect();
+});
 
 describe("Register", () => {
   describe("POST /api/auth/register", () => {
