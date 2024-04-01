@@ -13,6 +13,10 @@ mongoose
   .then(() => console.log("👍️ DB Connected"))
   .catch((err) => console.log(err.message));
 
+app.get("/", (req, res) => {
+  return res.status(200).json({ message: "Hello from AWS Instance" });
+});
+
 app.use("/api/auth", AuthRoutes);
 
 if (process.env.NODE_ENV !== "test") {
