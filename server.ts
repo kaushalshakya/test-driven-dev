@@ -4,10 +4,12 @@ import { db, port } from "./src/configs/dotenv.config";
 import { AuthRoutes, PostRoutes } from "./src/routes";
 import { errorHandler } from "./src/middlewares/errorHandler.middleware";
 import { auth } from "./src/middlewares/auth.middleware";
+import fileUpload from "express-fileupload";
 
 const app = express();
 
 app.use(express.json());
+app.use(fileUpload());
 
 mongoose
   .connect(db)
@@ -19,7 +21,7 @@ app.get("/", auth, (req, res) => {
 });
 
 app.use("/api/auth", AuthRoutes);
-app.use("/api/posts", PostRoutes);
+app.use("/api/posts", auth, PostRoutes);
 
 if (process.env.NODE_ENV !== "test") {
   app.listen(port, () => {

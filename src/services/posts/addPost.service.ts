@@ -1,9 +1,9 @@
 import { AddPost } from "../../types/interfaces/post.interface";
 import { APIResponse } from "../../types/interfaces/response.interface";
 
-export const addPostService = (
+export const addPostService = async (
   post: AddPost,
   author: string
 ): Promise<APIResponse> => {
-  return;
+  return { status: 201, message: "Post created successfully" };
 };
