@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { db, port } from "./src/configs/dotenv.config";
 import { AuthRoutes } from "./src/routes";
 import { errorHandler } from "./src/middlewares/errorHandler.middleware";
+import { auth } from "./src/middlewares/auth.middleware";
 
 const app = express();
 
@@ -13,7 +14,7 @@ mongoose
   .then(() => console.log("👍️ DB Connected"))
   .catch((err) => console.log(err.message));
 
-app.get("/", (req, res) => {
+app.get("/", auth, (req, res) => {
   return res.status(200).json({ message: "Hello from AWS Instance" });
 });
 

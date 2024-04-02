@@ -4,7 +4,7 @@ import { APIResponse } from "../../types/interfaces/response.interface";
 import { UserLogin } from "../../types/interfaces/user.interface";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { token } from "../../configs/dotenv.config";
+import { authenticate } from "../../configs/dotenv.config";
 
 export const loginService = async (
   credentials: UserLogin
@@ -31,14 +31,16 @@ export const loginService = async (
 
   const payload = {
     id: userExists.id,
-    firse_name: userExists.first_name,
+    first_name: userExists.first_name,
     last_name: userExists.last_name,
     email: userExists.email,
     avatar: userExists.avatar,
   };
 
-  const accessToken = jwt.sign(payload, token.accessToken, { expiresIn: "1h" });
-  const refreshToken = jwt.sign(payload, token.refreshToken, {
+  const accessToken = jwt.sign(payload, authenticate.accessToken, {
+    expiresIn: "1h",
+  });
+  const refreshToken = jwt.sign(payload, authenticate.refreshToken, {
     expiresIn: "7d",
   });
 

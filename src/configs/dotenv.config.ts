@@ -3,7 +3,7 @@ dotenv.config();
 
 export const port = process.env.PORT;
 export const db = process.env.DB_URI;
-export const token: { accessToken: string; refreshToken: string } = {
+export const authenticate: { accessToken: string; refreshToken: string } = {
   accessToken: process.env.ACCESS_TOKEN_SECRET,
   refreshToken: process.env.REFRESH_TOKEN_SECRET,
 };
