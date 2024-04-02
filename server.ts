@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import { db, port } from "./src/configs/dotenv.config";
-import { AuthRoutes } from "./src/routes";
+import { AuthRoutes, PostRoutes } from "./src/routes";
 import { errorHandler } from "./src/middlewares/errorHandler.middleware";
 import { auth } from "./src/middlewares/auth.middleware";
 
@@ -19,6 +19,7 @@ app.get("/", auth, (req, res) => {
 });
 
 app.use("/api/auth", AuthRoutes);
+app.use("/api/posts", PostRoutes);
 
 if (process.env.NODE_ENV !== "test") {
   app.listen(port, () => {
