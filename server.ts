@@ -17,7 +17,7 @@ mongoose
   .catch((err) => console.log(err.message));
 
 app.get("/", auth, (req, res) => {
-  return res.status(200).json({ message: "Hello from AWS Instance" });
+  return res.status(200).json({ message: "Hello from NgRok" });
 });
 
 app.use("/api/auth", AuthRoutes);
